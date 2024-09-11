@@ -37,7 +37,7 @@ const EventList: React.FC = () => {
         setEvents(response.data.data);
         setTotalPages(response.data.pagination.totalPages);
       } catch (error) {
-        console.error('Error fetching events', error);
+        console.log('Error fetching events', error);
       }
     };
 
@@ -57,7 +57,7 @@ const EventList: React.FC = () => {
       await axios.delete(`http://localhost:8000/api/event/events/${eventId}`);
       setEvents(events.filter((event) => event.id !== eventId));
     } catch (error) {
-      console.error('Error deleting event', error);
+      console.log('Error deleting event', error);
       toast.error('Error delete', {
         className: 'bg-red-100 text-red-700 p-4 rounded-lg',
         bodyClassName: 'font-medium',

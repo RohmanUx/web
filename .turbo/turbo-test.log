@@ -1,0 +1,9 @@
+
+> web@0.1.0 test
+> npx cypress verify & cypress run --component
+
+
+[STARTED] Task without title.
+[TITLE]  Verified Cypress!       C:\Users\Chicky Chill\AppData\Local\Cypress\Cache\13.14.2\Cypress
+[SUCCESS]  Verified Cypress!       C:\Users\Chicky Chill\AppData\Local\Cypress\Cache\13.14.2\Cypress
+

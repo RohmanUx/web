@@ -47,7 +47,7 @@ const CategoryList: React.FC = () => {
         setCategories(response.data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching categories:', err);
+        console.log('Error fetching categories:', err);
         setError('Failed fetch categories');
         setLoading(false);
       }
@@ -73,14 +73,14 @@ const CategoryList: React.FC = () => {
 
   const handleSearchChange = useCallback(
     debounce((query: string) => {
-      setSearchTerm(query);
+      setSearchTerm(query); 
       const queryParams = new URLSearchParams();
       if (query) {
         queryParams.set('searchTerm', query);
       }
       router.push(`/eventSearch?${queryParams.toString()}`);
     }, 0),
-    [router],
+    [router, debounce, setSearchTerm],
   );
 
   const paginate = (events: Event[]) => {

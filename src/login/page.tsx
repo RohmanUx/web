@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import Navbar from '../app/layout/navbar00';
+import { Navbar } from '../app/layout/navbar';
 
 interface ILoginPageProps {}
 
@@ -17,7 +17,7 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
   const [Auth, IsAuth] = React.useState<boolean>(false);
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
 
-  const onSubmit = async (): Promise<void> => {
+  const onSubmit = async ( ) : Promise < void > => {
     try {
       const { data } = await apiCall.post('/auth/login', {
         email: emailRef.current?.value,
@@ -49,7 +49,7 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
     // if(Auth) {
     //   router.replace("/")
     // }
-  }, [user, IsAuth]);
+  }, [user, IsAuth, router]); 
 
   if (!IsAuth) {
     return <p className="textr-center text-sm"> </p>;

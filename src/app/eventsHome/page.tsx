@@ -1,4 +1,4 @@
-"use client" 
+ 'use client'
 import React, { useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 import { Button } from '../../components/ui/button'; // Adjust path as necessary
@@ -43,7 +43,7 @@ const CategoryList: React.FC = () => {
         setCategories(response.data);
         setLoading(false);
       } catch (err: any) {
-        console.error('Error fetching categories:', err);
+        console.log('Error fetching categories:', err);
         setError('Failed to fetch categories');
         setLoading(false);
       }

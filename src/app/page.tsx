@@ -14,8 +14,7 @@ import Hero from './layout/hero';
 import Footer from './layout/footer';
 import CategoryList from './eventsHome/page';
 
-
-function Home() {
+const Home: React.FC = () => {
   const listImages = [
     { src: '/coldplay.jpg', alt: 'Coldplay' },
     { src: '/theweeknd.png', alt: 'The Weeknd' },
@@ -40,6 +39,7 @@ function Home() {
   const previousIndex = () => {
     setCurrentIndex((index) => (index === 0 ? images.length - 1 : index - 1));
   };
+
   const mutation = useMutation({
     mutationFn: async () => {
       const { data } = await apiCall.get('/api/event/events');
@@ -47,28 +47,24 @@ function Home() {
     },
     onSuccess: (data) => {
       console.log(data.result);
-
       setEvents(data.result);
     },
     onError: (error) => {
-      console.error('Error fetching events:', error);
+      console.log('Error fetching events:', error);
     },
   });
 
   useEffect(() => {
     mutation.mutate();
-  }, []);
+  }, [mutation]); // Ensure mutation is included if it changes
+
   return (
     <div>
-    <div>   <Hero />  
-
-    </div> 
-      <div> 
-      <CategoryList /> </div> 
-
+      <Hero />
+      <CategoryList />
       <Footer />
     </div>
   );
-}
+};
 
 export default Home;

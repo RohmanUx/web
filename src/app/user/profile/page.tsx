@@ -14,6 +14,7 @@ import { useMutation } from '@tanstack/react-query';
 import apiCall from '@/helper/apiCall';
 import { UserContext } from '@/contexts/UserContext';
 import withRole from '@/hoc/roleGuard';
+import router from 'next/router';
 
 interface IProfileProps {}
 
@@ -54,7 +55,7 @@ const Profile: React.FunctionComponent<IProfileProps> = (props) => {
 
     setEmail(user?.email);
     console.log(email);
-  }, []);
+  }, [mutation, setEmail , email, user?.email ]);
 
   return (
     <div className="flex">

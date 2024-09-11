@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
       router.replace('/login');
     },
     onError: (error) => {
-      console.error('Logout failed:', error);
+      console.log('Logout failed:', error);
     },
   });
 

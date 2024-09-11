@@ -88,13 +88,13 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
           }
         }
       } catch (error) {
-        console.error('Error fetching event details', error);
+        console.log('Error fetching event details', error);
       } finally {
         setLoading(false);
       }
     };
     fetchEventDetails();
-  }, [eventId, userId]);
+  }, [eventId, userId, id]);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -108,7 +108,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
           setTestimonials([]);
         }
       } catch (err) {
-        console.error('Error fetching testimonials', err);
+        console.log('Error fetching testimonials', err);
         setTestimonials([]);
       } finally {
         setLoading(false);
@@ -168,7 +168,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
         bodyClassName: 'font-medium',
       });
     } catch (error) {
-      console.error('Error during purchase', error);
+      console.log('Error during purchase', error);
       toast.error('Failed to complete the purchase.', {
         className: 'bg-red-100 text-red-700 p-4 rounded-lg',
         bodyClassName: 'font-medium',
@@ -209,7 +209,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       console.log('Testimonials data:');
     } catch (error) {
       setMessage('Error submitting testimonial');
-      console.error('Error submitting testimonial ', error);
+      console.log('Error submitting testimonial ', error);
     }
   };
 
@@ -224,7 +224,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       });
     } catch (error) {
       setMessage('Error deleting testimonial');
-      console.error('Error deleting testimonial', error);
+      console.log('Error deleting testimonial', error);
     }
   };
 
@@ -249,7 +249,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       setTestimonials(testimonialResponse.data || []);
     } catch (error) {
       setMessage('Error updating testimonial');
-      console.error('Error updating testimonial', error);
+      console.log('Error updating testimonial', error);
     }
   };
   if (loading) return <p>Loading ... </p>;
