@@ -1,3 +1,4 @@
+"use client" 
 import React, { useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 import { Button } from '../../components/ui/button'; // Adjust path as necessary
