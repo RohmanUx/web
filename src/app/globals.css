@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'KalesiRoundedDemo';
+    letter-spacing: 2px; 
+      }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }   
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+@font-face {
+  font-family: 'KalesiRoundedDemo';
+  src: url('/fonts/KalesiRoundedDemo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
